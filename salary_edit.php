@@ -1,12 +1,12 @@
 
 
-<?php 
-ob_start(); 
+<?php
+ob_start();  
 include 'include/conn.php';
 include 'include/header.php';
 include 'include/leftsidebar.php';
 $idget=$_GET['id'];
-$sql = ("SELECT * FROM `course` WHERE `course_id` = '$idget'");
+$sql = ("SELECT * FROM `salary` WHERE `s.no` = '$idget'");
 $stmt = $conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->fetchAll();
@@ -14,15 +14,16 @@ $result = $stmt->fetchAll();
 <?php
 if( isset( $_POST['submit'] ) ){
 	
-    $course_name=$_POST['course_name'];
-    $course_timing=$_POST['course_timing'];
-    $course_fee=$_POST['course_fee'];
+    $name=$_POST['name'];
+    $salary=$_POST['salary'];
+   
+
     
 	//data insertion 
-$sql = ("UPDATE `course` SET `course_name` = '$course_name', `course_timing` = '$course_timing',`course_fee` = '$course_fee' WHERE `course_id` = '$idget';");
+$sql = ("UPDATE `salary` SET `name` = '$name', `salary` = '$salary' WHERE `s.no` = '$idget';");
 $stmt = $conn->prepare($sql);
 $stmt->execute();
-header('Location:course.php');  
+header('Location:salary.php');  
 }
 	?>
 	
@@ -37,23 +38,15 @@ header('Location:course.php');
 		//print_r( $result ); 
 		?>
         <!-- Content Header (Page header) -->
-        <section class="content-header">
-          <h1>
-            Dashboard
-            <small>Control panel</small>
-          </h1>
-          <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Dashboard</li>
-          </ol>
-        </section>
+        
+		
+		
+		
 
         <!-- Main content -->
         <section class="content">
           <!-- Small boxes (Stat box) -->
           
-		  
-		  
 		  
 		  
 		  
@@ -65,30 +58,36 @@ header('Location:course.php');
               <!-- general form elements -->
               <div class="box box-primary">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Edit course</h3>
+                  <h3 class="box-title">Edit fee</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 <form role="form" method="post">
                   <div class="box-body">
 				
                     <div class="form-group col-md-12">
-                     	<div class="col-md-6"> <label for="exampleInputEmail1">course name</label>
-                      <input type="text" name="course_name" class="form-control" id="exampleInputEmail1" placeholder="Enter Course Name" value="<?=$result[0]['course_name']?>">
+                     	<div class="col-md-6"> <label for="exampleInputEmail1">name</label>
+                      <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Enter Name" value="<?=$result[0]['name']?>">
 					  </div>
 					  	<div class="col-md-6"></div>
                     </div>
                     <div class="form-group col-md-12">
-                    <div class="col-md-6">  <label for="exampleInputPassword1">course timing</label>
-                      <input type="text" name="course_timing" class="form-control" id="exampleInputPassword1" placeholder="enter Course Timing" value="<?=$result[0]['course_timing']?>">
+                    <div class="col-md-6">  <label for="exampleInputPassword1">total fee</label>
+                      <input type="text" name="salary" class="form-control" id="exampleInputPassword1" placeholder="enter total fee" value="<?=$result[0]['salary']?>">
                       </div>
 					  <div class="col-md-6"></div>
 				   </div>
-					 <div class="form-group col-md-12">
-                      <div class="col-md-6"><label for="exampleInputPassword1">course fee</label>
-                      <input type="text" name="course_fee" class="form-control" id="exampleInputPassword1" placeholder="enter Course Fee" value="<?=$result[0]['course_fee']?>">
+					<!-- <div class="form-group col-md-12">
+                      <div class="col-md-6"><label for="exampleInputPassword1">received fee</label>
+                      <input type="text" name="received" class="form-control" id="exampleInputPassword1" placeholder="enter received fee" value="<?=$result[0]['received']?>">
                     </div>
 					<div class="col-md-6"></div>
-					</div> 
+					</div>--->
+                   <!-- <div class="form-group col-md-12">
+                      <div class="col-md-6"><label for="exampleInputPassword1">remaining fee</label>
+                      <input type="text" name="remaining_fee" class="form-control" id="exampleInputPassword1" placeholder="enter remaining fee" value="<?=$result[0]['remaining_fee']?>">
+                    </div>
+					<div class="col-md-6"></div>
+					</div>	-->				
 					
                     </div>
 				

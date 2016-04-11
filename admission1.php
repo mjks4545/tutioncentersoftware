@@ -2,7 +2,7 @@
 include 'include/conn.php';
 include 'include/header.php';
 include 'include/leftsidebar.php';
-$sql="SELECT * FROM `student_course_join`";
+$sql=("SELECT * FROM `student_course_join`");
 $stmt=$conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->fetchAll();
@@ -15,15 +15,15 @@ foreach( $result as $query ){
 	//else
 		$course_id    = $query['course_id'];
 		$student_id   = $query['student_id'];
-		$result[$i]['join_id'] = $query['student_course_join_id'];
+		$result_e[$i]['join_id'] = $query['student_course_join_id'];
 	
 		$course_sql    = $conn->prepare( "SELECT * FROM `course` where `course_id`   = $course_id" );
 		$course_sql->execute();
-		$result[$i]['course'] = $course_sql->fetchAll();
+		$result_e[$i]['course'] = $course_sql->fetchAll();
 		
 		$student_sql  = $conn->prepare( "SELECT * FROM `student` where `student_id` = $student_id" ); 
 		$student_sql->execute();
-		$result[$i]['student'] = $student_sql->fetchAll();	
+		$result_e[$i]['student'] = $student_sql->fetchAll();	
 	
 
 	$i++;
@@ -90,10 +90,10 @@ foreach( $result as $query ){
 					<div class="col-md-12">
                     <?php
 					$i=1;
-					//$paid1=0;
-					//$total_fee1=0;
+					$paid1=0;
+					$total_fee1=0;
 					{	
-					foreach ($result as $admission){
+					foreach ($result_e as $admission){
 						//$paid1+=$admission['fee_paid'];
 						//$total_fee1+=$admission['course'][0]['course_fee'];  
 						?>
@@ -108,15 +108,15 @@ foreach( $result as $query ){
                        
                       <div class="col-md-1">   <td><?=$i ?></td></div>
                      
-                     <!-- <div class="col-md-1">   <td><?=$admission['student'][0]['student_id']?></td></div>--->
+                     
 					            
                       <div class="col-md-1"><td><?=( isset( $admission['student'][0]['student_name'] ) ) ? $admission['student'][0]['student_name'] : '' ; ?></td></div>
 					  <div class="col-md-1"><td><?=( isset( $admission['course'][0]['course_name'] ) ) ? $admission['course'][0]['course_name'] : '' ; ?></td></div>
-                      <!--<div class="col-md-1"><td><?=$admission['course'][0]['course_name']?></td></div>-->
+                      
 					  <div class="col-md-1"><td><?=( isset( $admission['course'][0]['course_fee'] ) ) ? $admission['course'][0]['course_fee'] : '' ; ?></td></div>
 					  	<div class="col-md-1"><td><?=( isset( $admission['course'][0]['course_fee'] ) ) ? $admission['course'][0]['course_fee'] : '' ; ?></td></div>
-					    <!--<div class="col-md-1"><td><?=( isset( $admission['course'][0]['course_fee'] ) ) ? $admission['course'][0]['course_fee'] : '' ; ?></td></div>-->
-					    <!--<div class="col-md-1"><td><?=$admission['course'][0]['course_fee']?></td></div>-->
+					   
+					
                       <div class="col-md-1"><td><a href="admission_edit.php?id=<?=$admission['join_id']?>"class="btn btn-warning">Edit</a></td></div>
   					  <div class="col-md-1"><td><a href="admission_delete.php?id=<?=$admission['join_id']?>"class="btn btn-danger">Delete</a></td></div>
  				       </tr>

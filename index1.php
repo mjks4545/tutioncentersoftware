@@ -17,17 +17,50 @@ $result = $stmt->fetchAll();
 
 
       <!-- Content Wrapper. Contains page content -->
-      <div class="content-wrapper">
+	  <!--<div class="col-md-12">
+	  <div class="col-md-2"></div>
+	  <div class="col-md-10">
+	  <img src="include/img/a.jpg" class="img-rounded col-md-4" alt="Cinque Terre" width="250" height="236"> 
+      <img src="include/img/a.jpg" class="img-rounded col-md-3" alt="Cinque Terre" width="250" height="236">      
+     <img src="include/img/a.jpg" class="img-rounded col-md-3" alt="Cinque Terre" width="250" height="236">      	  
+	  </div></div>-->
+      <div class="content-wrapper" >
 	  <?php// print_r($result);?>
         <!-- Content Header (Page header) -->
-       
-	   
-	   
+		 <div class="col-md-12">
+	      <img src="include/img/a.jpg" class="img-rounded col-md-4" alt="Cinque Terre" width="250" height="236"> 
+          <img src="include/img/a.jpg" class="img-rounded col-md-4" alt="Cinque Terre" width="250" height="236">      
+          <img src="include/img/a.jpg" class="img-rounded col-md-4" alt="Cinque Terre" width="250" height="236">      	  
+	     </div>
+		 
+		 
+
+		  <div class="row">
+  <div class="col-md-4">
+    <a href="include/img/a.jpg" class="thumbnail">
+      <!--<p>Pulpit Rock: A famous tourist attraction in Forsand, Ryfylke, Norway.</p> -->
+      <img src="include/img/a.jpg" alt="Pulpit Rock" style="width:150px;height:150px">
+    </a>
+  </div>
+  <div class="col-md-4">
+    <a href="include/img/a.jpg" class="thumbnail">
+     <!-- <p>Moustiers-Sainte-Marie: Considered as one of the "most beautiful villages of France".</p>-->
+      <img src="include/img/a.jpg" alt="Moustiers Sainte Marie" style="width:150px;height:150px">
+    </a>
+  </div>
+  <div class="col-md-4">
+    <a href="include/img/a.jpg" class="thumbnail">
+     <!-- <p>The Cinque Terre: A rugged portion of coast in the Liguria region of Italy.</p> --->
+      <img src="include/img/a.jpg" alt="Cinque Terre" style="width:150px;height:150px">
+    </a>
+  </div>
+</div>
+        
 
         <!-- Main content -->
-        <section class="content">
+     <!--   <section class="content" >
           <!-- Small boxes (Stat box) -->
-       <!-- /.row -->
+          
 		  
 		  <!-- Content Wrapper. Contains page content -->
 		  
@@ -45,8 +78,8 @@ $result = $stmt->fetchAll();
 				  </div>
 				  
                 </div><!-- /.box-header -->
-              <div class="box-body">
-                <table id="example2" class="table table-bordered table-hover">
+                <div class="box-body">
+                  <table id="example2" class="table table-bordered table-hover">
                    <div class="col-md-12"> <thead>
                      <tr>
 					 
@@ -73,13 +106,15 @@ $result = $stmt->fetchAll();
                         <div class="col-md-1"><td><?=$course['course_name']?></td></div>
                         <div class="col-md-1"><td><?=$course['course_timing']?></td></div>
                         <div class="col-md-1"><td><?=$course['course_fee']?></td></div>
-					    <div class="col-md-1"><td><a href="course_edit.php?id=<?= $course['course_id'] ?>" class="btn btn-warning">Edit</a></td></div>
+					
+                        <div class="col-md-1"><td><a href="course_edit.php?id=<?= $course['course_id'] ?>" class="btn btn-warning">Edit</a></td></div>
 					    <div class="col-md-1"><td><a href="course_delete.php?id=<?=$course['course_id']?>" class="btn btn-danger">Delete</a></td></div>
+                       
                       </tr>
 					  <?php $i++; } ?>
 					 
                     </tfoot>
-                </table>
+                  </table>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->
 
@@ -87,7 +122,7 @@ $result = $stmt->fetchAll();
             </div><!-- /.col -->
           </div><!-- /.row -->
         </section><!-- /.content -->
-        </section><!-- /.content -->
+        </section>---><!-- /.content --
       </div><!-- /.content-wrapper -->
 
 

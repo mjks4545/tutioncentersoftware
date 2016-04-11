@@ -1,5 +1,4 @@
-<?php
-ob_start();  
+<?php  
 include 'include/conn.php';
 include 'include/header.php';
 include 'include/leftsidebar.php';
@@ -7,21 +6,20 @@ include 'include/leftsidebar.php';
 ?>
 
 <?php
-//ob_start();
-//session_start();
+ob_start();
+session_start();
 if( isset( $_POST['submit'] ) ){
 
-    $course_name=$_POST['course_name'];
-    $course_timing=$_POST['course_timing'];
-    $course_fee=$_POST['course_fee'];
+    $name=$_POST['name'];
+    $total_fee=$_POST['total_fee'];
+    $received=$_POST['received'];
 	//$option_level=$_POST['option_level'];
 	
 	//data insertion 
-    $sql = "INSERT INTO `course` (`course_name`, `course_timing`, `course_fee`) VALUES ('$course_name', '$course_timing', '$course_fee')";
+    $sql = "INSERT INTO `fee` (`name`, `total_fee`, `received`) VALUES ('$name', '$total_fee', '$received')";
 	$stmt = $conn->prepare($sql);
 	$stmt->execute();
-  header('Location:course.php');
-	//$stmt->close();
+	$stmt->close();
 	//header(location:index.php);
 	}
 	?>
@@ -40,7 +38,6 @@ if( isset( $_POST['submit'] ) ){
 		  
 		  
 		  
-		  
 		  <!-- Content Wrapper. Contains page content -->
 		  
         <!-- Main content -->
@@ -51,27 +48,32 @@ if( isset( $_POST['submit'] ) ){
               <!-- general form elements -->
               <div class="box box-primary">
                 <div class="box-header with-border">
-                  <h3 class="box-title">INSERT INTO COURSE</h3>
+                  <h3 class="box-title">INSERT INTO Fee</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 <form role="form" method="post">
                   <div class="box-body">
                     <div class="form-group col-md-12">
-					<div class="col-md-6"><label for="exampleInputEmail1">Course Name</label>
-                      <input type="text"name="course_name"class="form-control" id="exampleInputEmail1" placeholder="Enter Course name">
+					<div class="col-md-6"><label for="exampleInputEmail1">s.no</label>
+                      <input type="text"name="s.no"class="form-control" id="exampleInputEmail1"/>
 					  </div>
 					  <div class="col-xs-6"></div>
                     </div>
                     <div class="form-group col-md-12">
-                      <div class="col-md-6"><label for="exampleInputPassword1">course Timing</label>
-                      <input type="text" class="form-control" name="course_timing"id="exampleInputPassword1" placeholder="Enter course timing">
+                      <div class="col-md-6"><label for="exampleInputPassword1">Name</label>
+                      <input type="text" class="form-control" name="name"id="exampleInputemail" placeholder="Enter the name">
                     </div>
 					<div class="col-md-6"></div>
 					</div>
                    
                     <div class="form-group col-md-12">
-					<div class="col-xs-6"><label for="exampleInputEmail1">Course FEE</label>
-                      <input type="text" class="form-control" name="course_fee"id="exampleInputEmail1" placeholder="Enter course fee">
+					<div class="col-xs-6"><label for="exampleInputEmail1">ToTal Fee</label>
+                      <input type="text" class="form-control" name="total_fee"id="exampleInputpassword" placeholder="Enter total fee">
+					  <div class="col-md-6"></div>
+					  </div></div>
+                      	 <div class="form-group col-md-12">
+					<div class="col-xs-6"><label for="exampleInputEmail1">Received</label>
+                      <input type="text" class="form-control" name="received"id="exampleInputpassword">
 					  <div class="col-md-6"></div>
 					  </div></div>
 					  

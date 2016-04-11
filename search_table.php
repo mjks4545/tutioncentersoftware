@@ -5,7 +5,7 @@ include 'include/leftsidebar.php';
 include 'include/conn.php';
 ?>
 <?php
-$sql="SELECT * FROM `course`";
+$sql="SELECT * FROM `accounts`";
 
 $stmt = $conn->prepare($sql);
 $stmt->execute();
@@ -20,9 +20,10 @@ $result = $stmt->fetchAll();
       <div class="content-wrapper">
 	  <?php// print_r($result);?>
         <!-- Content Header (Page header) -->
-       
-	   
-	   
+        
+		
+		
+		
 
         <!-- Main content -->
         <section class="content">
@@ -50,13 +51,16 @@ $result = $stmt->fetchAll();
                    <div class="col-md-12"> <thead>
                      <tr>
 					 
-                  <div class="col-md-1">      <th>Course Id</th></div>
-                       <div class="col-md-1">  <th>Course Name</th></div>
-                       <div class="col-md-1">  <th>Course Timing</th></div>
-                        <div class="col-md-1"> <th>Course Fee</th></div>
+                  <div class="col-md-1">      <th>Account Id</th></div>
+                       <div class="col-md-1">  <th>Account Fee</th></div>
+                       <div class="col-md-1">  <th>Paid Fee</th></div>
+                        <div class="col-md-1"> <th>Dues</th></div>
+						<div class="col-md-1"> <th>Date</th></div>
+						<!--- <div class="col-md-1"> <th>Date Edit</th></div>
+						  <div class="col-md-1"> <th>update by</th></div>--->
 						
-                       <div class="col-md-1">  <th>Edit</th></div>
-					   <div class="col-md-1">  <th>Delete</th></div>
+                      <!-- <div class="col-md-1">  <th>Edit</th></div>
+					   <div class="col-md-1">  <th>Delete</th></div>--->
 						
                       </tr>
 					  
@@ -67,17 +71,35 @@ $result = $stmt->fetchAll();
 					<div class="col-md-12">
                       <?php 
 					  $i = 1;
-					  foreach( $result as $course ){?>
+					  $amount_fee = 0;
+					  $paid_fee =0;
+					  $dues=0;
+					  foreach( $result as $accounts ){
+						  $amount_fee += $accounts['amount_fee'];
+						  $paid_fee+= $accounts['paid_fee'];
+						  $dues+=$accounts['amount_fee'] - $accounts['paid_fee'];
+						  ?>
 					  <tr>
                         <div class="col-md-1"><td><?=$i ?></td></div>
-                        <div class="col-md-1"><td><?=$course['course_name']?></td></div>
-                        <div class="col-md-1"><td><?=$course['course_timing']?></td></div>
-                        <div class="col-md-1"><td><?=$course['course_fee']?></td></div>
-					    <div class="col-md-1"><td><a href="course_edit.php?id=<?= $course['course_id'] ?>" class="btn btn-warning">Edit</a></td></div>
-					    <div class="col-md-1"><td><a href="course_delete.php?id=<?=$course['course_id']?>" class="btn btn-danger">Delete</a></td></div>
+                        <div class="col-md-1"><td><?=$accounts['amount_fee']?></td></div>
+                        <div class="col-md-1"><td><?=$accounts['paid_fee']?></td></div>
+						 <div class="col-md-1"><td><?=$accounts['amount_fee'] - $accounts['paid_fee'] ?></td></div>
+                        <div class="col-md-1"><td><?=$accounts['date_added']?></td></div>
+						
+						
+						<!--<div class="col-md-1"><td><?=$accounts['date_edit']?></td></div>
+				        <div class="col-md-1"><td><?=$accounts['updateby']?></td></div>-->
+					    <!--<div class="col-md-1"><td><a href="course_edit.php?id=<?= $course['course_id'] ?>" class="btn btn-warning">Edit</a></td></div>
+					    <div class="col-md-1"><td><a href="course_delete.php?id=<?=$course['course_id']?>" class="btn btn-danger">Delete</a></td></div>-->
                       </tr>
 					  <?php $i++; } ?>
+					  <tr>
+					 <div class="col-md-1"><td></td></div>
+					 <div class="col-md-1"><td><?=$amount_fee?></td></div>
+					  <div class="col-md-1"><td><?=$paid_fee?></td></div>
+					   <div class="col-md-1"><td><?=$dues?></td></div>
 					 
+					 </tr>
                     </tfoot>
                 </table>
                 </div><!-- /.box-body -->
