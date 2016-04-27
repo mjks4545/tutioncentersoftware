@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 include 'include/header.php';
 include 'include/leftsidebar.php';
 include 'include/conn.php';

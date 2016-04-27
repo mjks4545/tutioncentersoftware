@@ -56,32 +56,20 @@ if( isset( $_POST['submit'] ) ){
                       <div class="col-md-6"><label for="exampleInputPassword1">Teacher Timing</label>
                       <input type="text" class="form-control" name="teacher_timing"id="exampleInputPassword1" placeholder="">
                     </div>
+					</div>
                     <div class="form-group col-md-12">
                       <div class="col-md-6"><label for="exampleInputPassword1">Teacher Salary</label>
                       <input type="text" class="form-control" name="teacher_salary"id="exampleInputPassword1" placeholder="">
                     </div>
-					<div class="col-md-6"></div>
+		         <div class="col-md-6"></div>  
 					</div>
                    
                     <div class="form-group col-md-12">
 					<div class="col-xs-6"><label for="exampleInputEmail1">Teacher Grade</label>
                       <input type="text" class="form-control" name="teacher_grad"id="exampleInputEmail1" placeholder="">
-					  <div class="col-md-6"></div>
-					  </div></div>
-					  
-                   
-				<!---	<div class="form-group col-md-12">
-                     <div class="col-md-6"> <label>Select level</label>
-                      <select class="form-control" name="option_level">
-					    <option>Select level </option>
-                        <option>level 1</option>
-                        <option>level 2</option>
-                        <option>level 3</option>
-                        <option>level 4</option>
-                        <option>level 5</option>
-                      </select>
+					  <div class="col-md-6"></div>  
 					  </div>
-                    </div> --->
+					  </div>
 					
                   </div><!-- /.box-body -->
 
@@ -94,7 +82,7 @@ if( isset( $_POST['submit'] ) ){
 		</div>
 		</section>
         </section><!-- /.content -->
-      <!-- /.content-wrapper -->
+            </div><!-- /.content-wrapper -->
 </div>
 <?php include 'include/footer.php';?>
 

@@ -26,32 +26,11 @@ $annual_expense2=$_POST['annual_expense2'];
 //echo'$annual_expense2';
 
 $date_added=date("D-M-Y");
-//data updation
-$sql = "INSERT INTO `student` (`student_name`, `father_name`, `contact_no`,`email_adress`,`address`)
-VALUES ('$student_name', '$father_name', '$contact_no','$email_adress','$address')";
-$stmt= $conn->prepare($sql);
+
+$sql = "INSERT INTO `admission` (`s.no`, `student_name`, `father_name`, `contact_no`, `email`, `address`, `course`, `amount`, `paid`) VALUES (NULL, '$student_name', '$father_name', '$contact_no', '$email_adress', '$address', '$annual_expense', '$amount_fee', '$paid_fee')";
+$stmt = $conn->prepare($sql);
 $stmt->execute();
-$id = $conn->lastInsertId();
-$sql_account = "INSERT INTO `accounts` (`account_id`,`amount_fee`, `paid_fee`,`date_added`,`date_edit`,`updateby`)
-VALUES (NULL,'$amount_fee','$paid_fee','$date_added','','')";
-$stmt_account= $conn->prepare($sql_account);
-$stmt_account->execute();
 
-$sql_account = "INSERT INTO `student_course_join` (`student_id`, `course_id`)
-VALUES ('$id','$annual_expense')";
-$stmt_account= $conn->prepare($sql_account);
-$stmt_account->execute();
-
-$sql_account = "INSERT INTO `student_course_join` (`student_id`, `course_id`)
-VALUES ('$id','$annual_expense1')";
-$stmt_account= $conn->prepare($sql_account);
-$stmt_account->execute();
-
-$sql_account = "INSERT INTO `student_course_join` (`student_id`, `course_id`)
-VALUES ('$id','$annual_expense2')";
-$stmt_account= $conn->prepare($sql_account);
-
-$stmt_account->execute();
 header("Location:admission.php");
 }
 ?>
@@ -130,7 +109,7 @@ header("Location:admission.php");
                       </select>
                     </div>
                     </div>
-					<div class="form-group col-md-12">
+<!--					<div class="form-group col-md-12">
                      <div class="col-md-6"> <label>Select Course 2</label>
                          <select class="form-control" name="annual_expense1">
                           <?php
@@ -145,8 +124,8 @@ header("Location:admission.php");
                         <?php endforeach; ?>
                       </select>
                     </div>
-                    </div>
-					<div class="form-group col-md-12">
+                    </div>-->
+<!--					<div class="form-group col-md-12">
                      <div class="col-md-6"> <label>Select Course 3</label>
                          <select class="form-control" name="annual_expense2">
                           <?php
@@ -161,7 +140,7 @@ header("Location:admission.php");
                         <?php endforeach; ?>
                       </select>
                     </div>
-                    </div>
+                    </div>-->
 					<div class="form-group col-md-12">
                       <div class="col-md-6"><label for="exampleInputPassword1">Amount Of Fee</label>
                       <input type="text" name="amount_fee" class="form-control">

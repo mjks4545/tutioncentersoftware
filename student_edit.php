@@ -18,7 +18,7 @@ $contact_no=$_POST['contact_no'];
 $email_adress=$_POST['email_adress'];
 $address=$_POST['address'];
 //data updation
-$sql= "UPDATE `student` SET `student_name` = '$student_name', `father_name` = '$father_name', `contact_no` = '$contact_no',`email_adress` ='$email_address', `address` ='$address' WHERE `student_id` = '$idget'";
+$sql= "UPDATE `student` SET `student_name` = '$student_name', `father_name` = '$father_name', `contact_no` = '$contact_no',`email_adress` ='$email_adress', `address` ='$address' WHERE `student_id` = '$idget'";
     $stmt= $conn->prepare($sql);
     $stmt->execute();
   header("Location:student.php");

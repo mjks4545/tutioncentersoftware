@@ -57,19 +57,19 @@ if( isset( $_POST['submit'] ) ){
                     </div>
                     <div class="form-group col-md-12">
                       <div class="col-md-6"><label for="exampleInputPassword1">Name</label>
-                      <input type="text" class="form-control" name="name"id="exampleInputemail" placeholder="Enter the name">
+                      <input type="text" class="form-control" name="name"id="exampleInputemail" placeholder="Enter your name">
                     </div>
 					<div class="col-md-6"></div>
 					</div>
                    
                     <div class="form-group col-md-12">
-					<div class="col-xs-6"><label for="exampleInputEmail1">ToTal Fee</label>
+					<div class="col-xs-6"><label for="exampleInputEmail1">Total Fee</label>
                       <input type="text" class="form-control" name="total_fee"id="exampleInputpassword" placeholder="Enter total fee">
 					  <div class="col-md-6"></div>
 					  </div></div>
                       	 <div class="form-group col-md-12">
 					<div class="col-xs-6"><label for="exampleInputEmail1">Received</label>
-                      <input type="text" class="form-control" name="received"id="exampleInputpassword">
+                      <input type="text" class="form-control" name="received"id="exampleInputpassword" placeholder="Enter recieved fee">
 					  <div class="col-md-6"></div>
 					  </div></div>
 					  

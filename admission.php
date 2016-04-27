@@ -2,32 +2,10 @@
 include 'include/conn.php';
 include 'include/header.php';
 include 'include/leftsidebar.php';
-$sql="SELECT * FROM `student_course_join`";
+$sql="SELECT * FROM `admission`";
 $stmt=$conn->prepare($sql);
 $stmt->execute();
 $result = $stmt->fetchAll();
-$i = 1;
-foreach( $result as $query ){
-	
-	//print_r($query);
-	//if ( $query['course_id'] == 0 || $query['student_id'] ) {
-		//$result_e = null;
-	//else
-		$course_id    = $query['course_id'];
-		$student_id   = $query['student_id'];
-		$result[$i]['join_id'] = $query['student_course_join_id'];
-	
-		$course_sql    = $conn->prepare( "SELECT * FROM `course` where `course_id`   = $course_id" );
-		$course_sql->execute();
-		$result[$i]['course'] = $course_sql->fetchAll();
-		
-		$student_sql  = $conn->prepare( "SELECT * FROM `student` where `student_id` = $student_id" ); 
-		$student_sql->execute();
-		$result[$i]['student'] = $student_sql->fetchAll();	
-	
-
-	$i++;
-}
 ?>
 
 
@@ -67,76 +45,55 @@ foreach( $result as $query ){
                   	<div class="col-md-10"></div>
                     <div class="col-md-2">
                     <td><a href="admission_insert.php?" class="btn btn-success">New Admission</a></td>
+		    
                     </div>
                   </div>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="example2" class="table table-bordered table-hover">
-                   <div class="col-md-12"> <thead>
-                     <tr>
-					 <div class="col-md-1"><th>s.no</th></div>
-                      <div class="col-md-1"><th>Student Name</th></div>
-                      <div class="col-md-1"><th>course name</th></div>
-                      <div class="col-md-1"><th>Fee paid</th></div>
-					  <div class="col-md-1"><th>Amount of Fee</th></div>
-				      <div class="col-md-1"><th>Edit</th></div>
-					  <div class="col-md-1"><th>Delete</th></div> 
-					   </tr>
+                   <div class="col-md-12"> 
+		       <thead>
+                    <tr>
+		      <th>Student Name</th>
+                      <th>Father Name</th>
+                      <th>Contact No</th>
+                      <th>Email Address</th>
+		      <th>Address</th>
+		      <th>Course</th>
+		      <th>Amount Of Fee</th> 
+		      <th>Paid Fee</th> 
+		      <th colspan="2">Action</th> 
+		    </tr>
 					  
 					  
                     </thead>
-					</div>
                     <tbody>
-					<div class="col-md-12">
-                    <?php
-					$i=1;
-					//$paid1=0;
-					//$total_fee1=0;
-					{	
-					foreach ($result as $admission){
-						//$paid1+=$admission['fee_paid'];
-						//$total_fee1+=$admission['course'][0]['course_fee'];  
-						?>
-                             <tr>
-							 
-							<!--<pre>
-                          <?php  
-                              print_r($result); 
-                               ?>
-		                    </pre>-->
-                           
-                       
-                      <div class="col-md-1">   <td><?=$i ?></td></div>
-                     
-                     <!-- <div class="col-md-1">   <td><?=$admission['student'][0]['student_id']?></td></div>--->
-					            
-                      <div class="col-md-1"><td><?=( isset( $admission['student'][0]['student_name'] ) ) ? $admission['student'][0]['student_name'] : '' ; ?></td></div>
-					  <div class="col-md-1"><td><?=( isset( $admission['course'][0]['course_name'] ) ) ? $admission['course'][0]['course_name'] : '' ; ?></td></div>
-                      <!--<div class="col-md-1"><td><?=$admission['course'][0]['course_name']?></td></div>-->
-					  <div class="col-md-1"><td><?=( isset( $admission['course'][0]['course_fee'] ) ) ? $admission['course'][0]['course_fee'] : '' ; ?></td></div>
-					  	<div class="col-md-1"><td><?=( isset( $admission['course'][0]['course_fee'] ) ) ? $admission['course'][0]['course_fee'] : '' ; ?></td></div>
-					    <!--<div class="col-md-1"><td><?=( isset( $admission['course'][0]['course_fee'] ) ) ? $admission['course'][0]['course_fee'] : '' ; ?></td></div>-->
-					    <!--<div class="col-md-1"><td><?=$admission['course'][0]['course_fee']?></td></div>-->
-                      <div class="col-md-1"><td><a href="admission_edit.php?id=<?=$admission['join_id']?>"class="btn btn-warning">Edit</a></td></div>
-  					  <div class="col-md-1"><td><a href="admission_delete.php?id=<?=$admission['join_id']?>"class="btn btn-danger">Delete</a></td></div>
- 				       </tr>
-                       <?php 
-					   
-					   $i++;}
-					
-					} 	
-  
-					   ?>
-					<!--   <tr>
-					       <td></td>
-					        <td></td>
-							<td></td>
-							<td><?=$paid1?></td>
-							<td><?=$total_fee1?></td
-					   </tr>  -->
-					   
-                     </div>
-                    </tfoot>
+			<?php foreach ($result as $result){ ?>		
+		    <tr>
+		      <td><?= $result['student_name']?></td>
+		      <td><?= $result['father_name']?></td>
+		      <td><?= $result['contact_no']?></td>
+		      <td><?= $result['email']?></td>
+		      <td><?= $result['address']?></td>
+		      <td>
+			<?php  
+			    $course = $result['course'];
+			    $sql = "SELECT * FROM `course` WHERE `course_id` = '$course'";
+			    $stmt = $conn->prepare($sql);
+			    $stmt->execute();	
+			    $result_c = $stmt->fetchAll();
+			    $result_c = $result_c[0];
+			    echo $result_c['course_name'];
+			?>
+		      </td>
+		      <td><?= $result['amount']?></td>
+		      <td><?= $result['paid']?></td>
+		      <td><a class="btn btn-warning" href="admission_edit.php?id=<?= $result['s.no']?>" >Edit</a></td>
+		      <td><a class="btn btn-danger" href="admission_delete.php?id=<?= $result['s.no']?>" >Delete</a></td>
+		    </tr>		   
+			<?php } ?>		
+
+                    </tbody>
                   </table>
                 </div><!-- /.box-body -->
               </div><!-- /.box -->

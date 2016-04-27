@@ -69,19 +69,19 @@ header("Location:student.php");
           </div> 
           <div class="form-group col-md-12">
                       <div class="col-md-6"><label for="exampleInputPassword1">contact No</label>
-                      <input type="text" name="contact_no" class="form-control" placeholder="enter your roll no" >
+                      <input type="text" name="contact_no" class="form-control" placeholder="enter your contact no" >
                     </div>
                    
                     </div>
 					<div class="form-group col-md-12">
                       <div class="col-md-6"><label for="exampleInputPassword1">Email Address</label>
-                      <input type="text" name="email_address" class="form-control" placeholder="enter your roll no" >
+                      <input type="text" name="email_address" class="form-control" placeholder="enter your Email Address" >
                     </div>
                    
                     </div>
 					<div class="form-group col-md-12">
                       <div class="col-md-6"><label for="exampleInputPassword1">Address</label>
-                      <input type="text" name="address" class="form-control" placeholder="enter your roll no" >
+                      <input type="text" name="address" class="form-control" placeholder="enter your Address" >
                     </div>
                    
                     </div>
