@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 19, 2016 at 03:15 PM
+-- Generation Time: Apr 27, 2016 at 09:54 AM
 -- Server version: 10.1.8-MariaDB
 -- PHP Version: 5.6.14
 
@@ -32,46 +32,56 @@ CREATE TABLE `accounts` (
   `paid_fee` varchar(255) NOT NULL,
   `date_added` varchar(255) NOT NULL,
   `date_edit` varchar(500) NOT NULL,
-  `updateby` varchar(255) NOT NULL
+  `updateby` varchar(255) NOT NULL,
+  `student_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `accounts`
 --
 
-INSERT INTO `accounts` (`account_id`, `amount_fee`, `paid_fee`, `date_added`, `date_edit`, `updateby`) VALUES
-(11, '100', '50', '01-Mar-2016', '', ''),
-(12, '200', '100', '02-Mar-2016', '', ''),
-(13, '300', '150', '03-Mar-2016', '', ''),
-(14, '400', '200', '04-Mar-2016', '', ''),
-(15, '500', '250', '05-Mar-2016', '', ''),
-(16, '600', '300', '06-Mar-2016', '', ''),
-(17, '700', '350', '07-Mar-2016', '', ''),
-(18, '800', '400', '08-Mar-2016', '', ''),
-(19, '900', '450', '09-Mar-2016', '', ''),
-(20, '1000', '500', '10-Mar-2016', '', ''),
-(21, '1100', '550', '11-Mar-2016', '', ''),
-(22, '1200', '600', '12-Mar-2016', '', ''),
-(23, '1300', '650', '13-Mar-2016', '', ''),
-(24, '1400', '700', '14-Mar-2016', '', ''),
-(25, '1500', '750', '15-Mar-2016', '', ''),
-(26, '1400', '700', '16-Mar-2016', '', ''),
-(27, '1500', '750', '17-Mar-2016', '', ''),
-(28, '1600', '800', '18-Mar-2016', '', ''),
-(29, '1700', '850', '19-Mar-2016', '', ''),
-(30, '1800', '900', '20-Mar-2016', '', ''),
-(31, '19000', '850', '21-Mar-2016', '', ''),
-(32, '2000', '100', '22-Mar-2016', '', ''),
-(33, '2100', '1050', '23-Mar-2016', '', ''),
-(34, '2200', '1100', '24-Mar-2016', '', ''),
-(51, '2000', '500', '', '', ''),
-(52, '50000', '4000', '', '', ''),
-(53, 'saasas', 'asas', 'Tue-Apr-2016', '', ''),
-(54, '4000', '3000', 'Tue-Apr-2016', '', ''),
-(55, '5000', '3000', 'Tue-Apr-2016', '', ''),
-(56, '200', '100', 'Mon-Apr-2016', '', ''),
-(57, 'asdf', 'asdf', 'Mon-Apr-2016', '', ''),
-(58, 'asdf', 'asdf', 'Mon-Apr-2016', '', '');
+INSERT INTO `accounts` (`account_id`, `amount_fee`, `paid_fee`, `date_added`, `date_edit`, `updateby`, `student_id`) VALUES
+(11, '100', '50', '01-Mar-2016', '', '', 0),
+(12, '200', '100', '02-Mar-2016', '', '', 0),
+(13, '300', '150', '03-Mar-2016', '', '', 0),
+(14, '400', '200', '04-Mar-2016', '', '', 0),
+(15, '500', '250', '05-Mar-2016', '', '', 0),
+(16, '600', '300', '06-Mar-2016', '', '', 0),
+(17, '700', '350', '07-Mar-2016', '', '', 0),
+(18, '800', '400', '08-Mar-2016', '', '', 0),
+(19, '900', '450', '09-Mar-2016', '', '', 0),
+(20, '1000', '500', '10-Mar-2016', '', '', 0),
+(21, '1100', '550', '11-Mar-2016', '', '', 0),
+(22, '1200', '600', '12-Mar-2016', '', '', 0),
+(23, '1300', '650', '13-Mar-2016', '', '', 0),
+(24, '1400', '700', '14-Mar-2016', '', '', 0),
+(25, '1500', '750', '15-Mar-2016', '', '', 0),
+(26, '1400', '700', '16-Mar-2016', '', '', 0),
+(27, '1500', '750', '17-Mar-2016', '', '', 0),
+(28, '1600', '800', '18-Mar-2016', '', '', 0),
+(29, '1700', '850', '19-Mar-2016', '', '', 0),
+(30, '1800', '900', '20-Mar-2016', '', '', 0),
+(31, '19000', '850', '21-Mar-2016', '', '', 0),
+(32, '2000', '100', '22-Mar-2016', '', '', 0),
+(33, '2100', '1050', '23-Mar-2016', '', '', 0),
+(34, '2200', '1100', '24-Mar-2016', '', '', 0),
+(51, '2000', '500', '', '', '', 0),
+(52, '50000', '4000', '', '', '', 0),
+(53, 'saasas', 'asas', 'Tue-Apr-2016', '', '', 0),
+(54, '4000', '3000', 'Tue-Apr-2016', '', '', 0),
+(55, '5000', '3000', 'Tue-Apr-2016', '', '', 0),
+(56, '200', '100', 'Mon-Apr-2016', '', '', 0),
+(57, 'asdf', 'asdf', 'Mon-Apr-2016', '', '', 0),
+(58, 'asdf', 'asdf', 'Mon-Apr-2016', '', '', 0),
+(59, '30000', '20000', 'Sat-Apr-2016', '', '', 0),
+(60, '1000', '100', 'Tue-Apr-2016', '', '', 0),
+(61, '100', '10000', 'Tue-Apr-2016', '', '', 0),
+(62, '50', '5000', 'Tue-Apr-2016', '', '', 0),
+(63, '100000', '1000', 'Tue-Apr-2016', '', '', 0),
+(64, 'asdfasd', 'asdfasd', 'Tue-Apr-2016', '', '', 0),
+(65, '5555', '555555', 'Tue-Apr-2016', '', '', 103),
+(66, '200', '100', 'Tue-Apr-2016', '', '', 104),
+(67, '5000', '2000', 'Tue-Apr-2016', '', '', 105);
 
 -- --------------------------------------------------------
 
@@ -82,29 +92,21 @@ INSERT INTO `accounts` (`account_id`, `amount_fee`, `paid_fee`, `date_added`, `d
 CREATE TABLE `admission` (
   `s.no` int(255) NOT NULL,
   `student_name` varchar(255) NOT NULL,
-  `course_name` varchar(255) NOT NULL,
-  `fee_paid` varchar(255) NOT NULL,
-  `total_fee` varchar(255) NOT NULL
+  `father_name` varchar(255) NOT NULL,
+  `contact_no` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `course` varchar(255) NOT NULL,
+  `amount` varchar(255) NOT NULL,
+  `paid` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admission`
 --
 
-INSERT INTO `admission` (`s.no`, `student_name`, `course_name`, `fee_paid`, `total_fee`) VALUES
-(11, 'akram', 'phy', '3000', '4000'),
-(12, 'waqas', 'chemistry', '2000', '4000'),
-(13, 'ahmad', 'bio', '4000', '5000'),
-(14, 'waqas', 'shabir', '3000', '4000'),
-(15, 'naveed', 'chem', '40000', '50000'),
-(16, 'junaid', 'eng', '2000', '3000'),
-(17, 'salman', 'urdu', '4000', '5000'),
-(18, 'selab', 'database', '50000', '60000'),
-(19, 'shabir', 'phy', '4000', '5000'),
-(20, 'dawood', 'science', '4000', '5000'),
-(21, 'nazeer', 'urdu', '5000', '6000'),
-(22, 'sajid', 'phy', '2000', '5000'),
-(23, 'anar gul', 'pukhto', '150', '200');
+INSERT INTO `admission` (`s.no`, `student_name`, `father_name`, `contact_no`, `email`, `address`, `course`, `amount`, `paid`) VALUES
+(25, 'ab', 'bb', 'cb', 'db', 'eb', '12', 'fb', 'gb');
 
 -- --------------------------------------------------------
 
@@ -125,10 +127,10 @@ CREATE TABLE `course` (
 --
 
 INSERT INTO `course` (`course_id`, `student_id`, `course_name`, `course_timing`, `course_fee`) VALUES
-(11, 0, 'maths1', '2pm to 4pm', '3000'),
-(12, 0, 'eng', '2pm to 6pm', '1000'),
+(11, 0, 'maths', '2pm to 4pm', '5000'),
+(12, 0, 'engl', '2pm to 6pm', '5000'),
 (13, 0, 'Chemistry', '2pm to 6pm s', '20000'),
-(14, 0, 'islameyat', '2pm to 6pm', '2000'),
+(14, 0, 'somename', '2pm to 6pm', '20000'),
 (16, 0, 'Chemistry1', '2pm to 4pm', '20000'),
 (17, 0, 'maths', '2pm to 4pm', '20000');
 
@@ -158,7 +160,8 @@ INSERT INTO `fee` (`s.no`, `name`, `total_fee`, `received`) VALUES
 (17, 'ali jamadar', '3000', '2000'),
 (18, ' macho wala', '4000', '3500'),
 (19, 'ali khan macho wala', '3000', '3000'),
-(20, 'akram', '4000', '2000');
+(20, 'akram', '4000', '2000'),
+(22, 'junaid', '4000', '2000');
 
 -- --------------------------------------------------------
 
@@ -263,16 +266,26 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`student_id`, `student_name`, `father_name`, `contact_no`, `email_adress`, `address`) VALUES
-(79, 'ashfaq', 'khakm', '03159869980', 'suleman38@gmail.com', 'mardan'),
+(79, 'ashfaq', 'khakm2', '031598699802', 'jkjfgfhgd@jhg', 'mardan2'),
 (80, 'adnan', 'khakm', '03159869980', 'suleman38@gmail.com', 'mardan'),
 (82, 'ali', 'akram101', '7546546435', ';ldfjfjgkfjgkfg@', 'erytjuuykuk'),
 (85, 'ashfaq', 'khakm', '7546546435', 'suleman38@gmail.com', 'mardan'),
-(86, 'adnan', 'ahmad', '03159869980', 'suleman38@gmail.com', 'mardan'),
+(86, 'adnan1', 'ahmad1', '031598699801', 'suleman38@gmail.com1', 'mardan1'),
 (88, 'ashfaq1', 'khakm', '0315986998011', 'dkuhgel@rtur', 'mardan'),
-(89, 'adnan', 'ahmad', '7546546435', 'dkuhgel@rtur', 'mardan'),
-(90, 'asd', 'asd', 'asd', 'asd@gmail.com', 'sadfasdf'),
+(89, 'adnan', 'akram', '7546546435', 'suleman38@gmail.com1', 'mardan12'),
 (91, 'adf', 'asdf', 'sadf', 'mjks4545@gmail.com', 'sadfasdf'),
-(92, 'asdf', 'asdf', 'asdf', 'asdf', 'asdf');
+(94, 'akram', 'ahmaad', '03158293298', 'sjkdfajkldsfj@1223', 'ajksdfhdjshfajksdhfsdjkhf'),
+(95, 'ali1', 'akram1', '0314768786551', 'gfdfgsddfgs@hgrfrt', 'fjfgjhgjhgfffd1'),
+(96, 'ashfaq12', 'khan', '03018989553', 'mjks4545@gmail.com', 'address'),
+(97, 'adnan1', 'akram', '031598699801', 'yutuytryurytr23@f', 'mardan12'),
+(98, 'junaid', 'khan', '03018989553', 'mjks4545@gmail.com', 'some address'),
+(99, 'another', 'another', '555555555555', 'mjks4545@gmail.com', 'sp,eaddress'),
+(100, 'asdfa', 'asdf', 'asdf', 'asdf@asdfa.com', 'asdfasdf'),
+(101, 'asdsa', 'asdsa', 'asd', 'asdas@gmail.com', 'sadfasdf'),
+(102, 'asdf', 'asdf', 'asdfa', 'mjks4545@gmail.com', 'afasdf'),
+(103, 'asdf', 'asdf', 'asdfasd', 'asdf@asdfa.com', 'asdfasdf'),
+(104, 'asdf', 'asdf', 'asdf', 'asdf@gmail.com', 'asdfasdf'),
+(105, 'junaid', 'khan', 'sadomsad', 'somename@gmail.com', 'asdfasdf');
 
 -- --------------------------------------------------------
 
@@ -291,13 +304,9 @@ CREATE TABLE `student_course_join` (
 --
 
 INSERT INTO `student_course_join` (`student_course_join_id`, `student_id`, `course_id`) VALUES
-(10, 85, 11),
-(11, 85, 12),
-(12, 85, 13),
-(13, 86, 14),
-(16, 90, 11),
-(17, 91, 11),
-(18, 92, 12);
+(27, 103, 12),
+(28, 104, 11),
+(29, 105, 11);
 
 -- --------------------------------------------------------
 
@@ -425,12 +434,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `account_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `account_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 --
 -- AUTO_INCREMENT for table `admission`
 --
 ALTER TABLE `admission`
-  MODIFY `s.no` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `s.no` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT for table `course`
 --
@@ -440,7 +449,7 @@ ALTER TABLE `course`
 -- AUTO_INCREMENT for table `fee`
 --
 ALTER TABLE `fee`
-  MODIFY `s.no` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `s.no` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `recieved_form`
 --
@@ -455,12 +464,12 @@ ALTER TABLE `salary`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `student_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
+  MODIFY `student_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 --
 -- AUTO_INCREMENT for table `student_course_join`
 --
 ALTER TABLE `student_course_join`
-  MODIFY `student_course_join_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `student_course_join_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `teacher1`
 --
